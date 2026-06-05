@@ -2,73 +2,112 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Para ti 💖</title>
+<title>MELY & EMA ❤️</title>
 
 <style>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  overflow: hidden;
-  color: white;
-  text-align: center;
+  padding: 0;
+  background: #f5f0e6; /* beige elegante */
+  font-family: "Georgia", serif;
+  color: #2c2c2c;
+  line-height: 1.7;
 }
 
-/* Contenedor principal */
+/* CONTENEDOR GENERAL */
 .container {
-  position: relative;
-  top: 15vh;
-  animation: fadeIn 3s ease-in-out;
-}
-
-h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-/* Carta */
-.carta {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
-  background: rgba(0,0,0,0.25);
-  padding: 25px;
-  border-radius: 20px;
-  font-size: 20px;
-  line-height: 1.6;
-  min-height: 120px;
+  padding: 40px 20px;
 }
 
-/* Animación entrada */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+/* TITULO */
+h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
-/* Corazones flotantes */
-.heart {
-  position: absolute;
-  color: #ff4d6d;
-  animation: floatUp 6s linear infinite;
-  font-size: 20px;
+.date {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 16px;
+  color: #555;
 }
 
-@keyframes floatUp {
-  0% {transform: translateY(100vh) scale(0.5); opacity: 0;}
-  50% {opacity: 1;}
-  100% {transform: translateY(-10vh) scale(1.2); opacity: 0;}
+/* PORTADA */
+.portada {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Cursor escritura */
+.portada img {
+  width: 220px;
+  border-radius: 10px;
+}
+
+/* CARTA */
+.carta {
+  font-size: 18px;
+  white-space: pre-line;
+  margin-bottom: 40px;
+}
+
+/* CURSOR */
 .cursor {
   display: inline-block;
   width: 2px;
-  background: white;
-  animation: blink 0.7s infinite;
+  background: #2c2c2c;
+  animation: blink 0.8s infinite;
 }
 
 @keyframes blink {
-  50% {opacity: 0;}
+  50% { opacity: 0; }
+}
+
+/* CONTADOR */
+.contador {
+  text-align: center;
+  font-size: 18px;
+  margin: 40px 0;
+}
+
+/* CARRUSEL */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.track img {
+  width: 500px;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* VIDEO */
+video {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 40px auto;
+  border-radius: 10px;
+}
+
+/* SEPARADORES */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 50px 0;
 }
 </style>
 </head>
@@ -76,50 +115,138 @@ h1 {
 <body>
 
 <div class="container">
-  <h1>💖 Para ti 💖</h1>
 
-  <div class="carta">
-    <span id="text"></span><span class="cursor"></span>
+<h1>MELY & EMA ❤️</h1>
+<div class="date">13 de mayo de 2023</div>
+
+<!-- PORTADA -->
+<div class="portada">
+  <img src="portada.jpg" alt="portada">
+</div>
+
+<hr>
+
+<!-- CARTA 1 -->
+<div class="carta" id="carta1"></div>
+
+<hr>
+
+<!-- CONTADOR -->
+<div class="contador" id="contador"></div>
+
+<hr>
+
+<h2 style="text-align:center;">NUESTROS RECUERDOS</h2>
+
+<!-- CARRUSEL -->
+<div class="carousel">
+  <div class="track" id="track">
+
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+    <img src="foto5.jpg">
+    <img src="foto6.jpg">
+    <img src="foto7.jpg">
+    <img src="foto8.jpg">
+    <img src="foto9.jpg">
+    <img src="foto10.jpg">
+    <img src="foto11.jpg">
+    <img src="foto12.jpg">
+    <img src="foto13.jpg">
+    <img src="foto14.jpg">
+    <img src="foto15.jpg">
+
   </div>
 </div>
 
-<!-- Música opcional -->
-<audio autoplay loop>
-  <source src="" type="audio/mp3">
-</audio>
+<hr>
+
+<h2 style="text-align:center;">▶ VIDEO</h2>
+
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<!-- CARTA FINAL -->
+<div class="carta" id="carta2"></div>
+
+</div>
 
 <script>
-// Texto tipo máquina de escribir
-const text = "Cada palabra en esta web es para recordarte lo importante que eres para mí. Eres mi pensamiento bonito del día, mi calma y mi felicidad. 💕";
-let i = 0;
 
-function escribir() {
-  if (i < text.length) {
-    document.getElementById("text").innerHTML += text.charAt(i);
+/* TEXTO 1 */
+const texto1 = `A veces la vida une caminos de la forma más inesperada.
+Y cuando eso ocurre, algunos encuentros dejan de ser coincidencias para convertirse en hogar.
+
+Hay personas que llegan a nuestra vida haciendo ruido y otras que llegan convirtiéndose en calma. Tú fuiste eso para mí.
+
+No recuerdo cada palabra que hemos dicho ni cada momento que hemos compartido, pero sí recuerdo la sensación de encontrar en ti un lugar seguro. Un espacio donde puedo ser yo misma, donde las preocupaciones pesan menos y donde los días difíciles parecen más fáciles de atravesar.
+
+Entre todas las cosas que admiro de ti, hay una que nunca deja de sorprenderme: tu paciencia.`;
+
+let i = 0;
+function escribir1() {
+  if (i < texto1.length) {
+    document.getElementById("carta1").innerHTML += texto1.charAt(i);
     i++;
-    setTimeout(escribir, 50);
+    setTimeout(escribir1, 25);
   }
 }
-escribir();
+escribir1();
 
-// Corazones flotantes
-function crearCorazon() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "💖";
+/* CONTADOR */
+function actualizarContador() {
+  const inicio = new Date("2023-05-13T22:10:00");
+  const ahora = new Date();
+  const diff = ahora - inicio;
 
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  const segundos = Math.floor(diff / 1000);
+  const minutos = Math.floor(segundos / 60);
+  const horas = Math.floor(minutos / 60);
+  const dias = Math.floor(horas / 24);
 
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  document.getElementById("contador").innerHTML =
+    `${dias} días • ${horas % 24} horas • ${minutos % 60} minutos • ${segundos % 60} segundos`;
 }
+setInterval(actualizarContador, 1000);
+actualizarContador();
 
-setInterval(crearCorazon, 300);
+/* CARRUSEL */
+let index = 0;
+
+setInterval(() => {
+  const track = document.getElementById("track");
+  const total = track.children.length;
+
+  index++;
+  if (index >= total) index = 0;
+
+  track.style.transform = `translateX(${-index * 500}px)`;
+}, 3000);
+
+/* TEXTO FINAL */
+const texto2 = `Gracias por cada conversación, cada risa y cada momento compartido.
+
+Gracias por la paciencia que tanto admiro y por la tranquilidad que aportas a mi vida.
+
+No sé cuántos capítulos nos quedan por escribir, pero sé que mi parte favorita de esta historia es que la estamos escribiendo juntos.
+
+Con amor,`;
+
+let j = 0;
+function escribir2() {
+  if (j < texto2.length) {
+    document.getElementById("carta2").innerHTML += texto2.charAt(j);
+    j++;
+    setTimeout(escribir2, 25);
+  }
+}
+setTimeout(escribir2, 4000);
+
 </script>
 
 </body>

@@ -211,7 +211,7 @@ function escribir1() {
   if (i < texto1.length) {
     document.getElementById("carta1").innerHTML += texto1.charAt(i);
     i++;
-    setTimeout(escribir1, 25);
+    setTimeout(escribir1, 2500);
   }
 }
 escribir1();
@@ -275,7 +275,7 @@ function escribir2() {
 
     j++;
 
-    setTimeout(escribir2, 25);
+    setTimeout(escribir2, 2500);
 
   } else {
 
@@ -283,7 +283,7 @@ function escribir2() {
 
 setTimeout(() => {
   document.getElementById("firma").classList.add("visible");
-}, 10000);
+}, 1000);
 
   }
 
@@ -313,7 +313,8 @@ window.addEventListener("load", revisarCartaFinal);
 
 /* Aparición progresiva */
 
-document.getElementById("titulo").classList.add("visible");
+setTimeout(() => {
+  document.getElementById("titulo").classList.add("visible");
 }, 1000);
   
 setTimeout(() => {

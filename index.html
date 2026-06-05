@@ -195,7 +195,7 @@ video {
      style="display:none; text-align:center; margin-top:20px;">
   <img src="firma.png" alt="Firma" style="max-width:220px;">
 </div>
-  
+</div>  
 <script>
 
 /* TEXTO INICIAL */
@@ -312,7 +312,7 @@ window.addEventListener("scroll", revisarCartaFinal);
 window.addEventListener("load", revisarCartaFinal);
 
 /* Aparición progresiva */
-</div>
+
 document.getElementById("titulo").classList.add("visible");
 
 setTimeout(() => {
@@ -343,6 +343,9 @@ setTimeout(() => {
   document.getElementById("videoBloque").classList.add("visible");
 }, 11000);
   
+setTimeout(() => {
+  document.getElementById("carta2").classList.add("visible");
+}, 12500);
 </script>
 
 </body>

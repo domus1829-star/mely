@@ -179,16 +179,12 @@ video {
 <hr>
 
 <div id="videoBloque" class="seccion">
-
 <h2 style="text-align:center;">▶️ VIDEO</h2>
-
 <video controls>
-
-</div>
-
 <source src="video.mp4" type="video/mp4">
 </video>
-
+</div>
+  
 <hr>
 
 <!-- CARTA FINAL -->
@@ -199,9 +195,7 @@ video {
      style="display:none; text-align:center; margin-top:20px;">
   <img src="firma.png" alt="Firma" style="max-width:220px;">
 </div>
-
-</div>
-
+  
 <script>
 
 /* TEXTO INICIAL */
@@ -285,7 +279,11 @@ function escribir2() {
 
   } else {
 
-    document.getElementById("firma").style.display = "block";
+  document.getElementById("firma").style.display = "block";
+
+setTimeout(() => {
+  document.getElementById("firma").classList.add("visible");
+}, 100);
 
   }
 
@@ -315,5 +313,37 @@ window.addEventListener("load", revisarCartaFinal);
 
 </script>
 
+/* Aparición progresiva */
+</div>
+document.getElementById("titulo").classList.add("visible");
+
+setTimeout(() => {
+  document.getElementById("fecha").classList.add("visible");
+}, 1500);
+
+setTimeout(() => {
+  document.getElementById("portada").classList.add("visible");
+}, 3000);
+
+setTimeout(() => {
+  document.getElementById("carta1").classList.add("visible");
+}, 4500);
+
+setTimeout(() => {
+  document.getElementById("contadorBloque").classList.add("visible");
+}, 6500);
+
+setTimeout(() => {
+  document.getElementById("recuerdosTitulo").classList.add("visible");
+}, 8000);
+
+setTimeout(() => {
+  document.getElementById("carruselBloque").classList.add("visible");
+}, 9500);
+
+setTimeout(() => {
+  document.getElementById("videoBloque").classList.add("visible");
+}, 11000);
+  
 </body>
 </html>

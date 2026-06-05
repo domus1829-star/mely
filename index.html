@@ -173,7 +173,12 @@ video {
 <hr>
 
 <!-- CARTA FINAL -->
+  
 <div class="carta" id="carta2"></div>
+  
+<div id="firma" style="display:none; text-align:center; margin-top:20px;">
+  <img src="firma.png" alt="Firma" style="max-width:220px;">
+</div>
 
 </div>
 
@@ -214,22 +219,29 @@ function actualizarContador() {
 setInterval(actualizarContador, 1000);
 actualizarContador();
 
-/* CARRUSEL CORREGIDO */
+/* CARRUSEL */
+
 let index = 0;
 
 setInterval(() => {
+
   const track = document.getElementById("track");
   const total = track.children.length;
 
   index++;
-  if (index >= total) index = 0;
 
-  const width = track.clientWidth;
-  track.style.transform = `translateX(${-index * width}px)`;
+  if (index >= total) {
+    index = 0;
+  }
+
+  track.style.transform =
+    `translateX(${-index * 500}px)`;
 
 }, 3000);
 
-/* TEXTO FINAL */
+
+/* CARTA FINAL */
+
 const texto2 = `Gracias por cada conversación, cada risa y cada momento compartido.
 
 Gracias por la paciencia que tanto admiro y por la tranquilidad que aportas a mi vida.
@@ -239,14 +251,47 @@ No sé cuántos capítulos nos quedan por escribir, pero sé que mi parte favori
 Con amor,`;
 
 let j = 0;
+let cartaFinalIniciada = false;
+
 function escribir2() {
+
   if (j < texto2.length) {
+
     document.getElementById("carta2").innerHTML += texto2.charAt(j);
+
     j++;
+
     setTimeout(escribir2, 25);
+
+  } else {
+
+    document.getElementById("firma").style.display = "block";
+
   }
+
 }
-setTimeout(escribir2, 4000);
+
+function revisarCartaFinal() {
+
+  const carta = document.getElementById("carta2");
+
+  const posicion = carta.getBoundingClientRect().top;
+
+  if (
+    posicion < window.innerHeight * 0.8 &&
+    !cartaFinalIniciada
+  ) {
+
+    cartaFinalIniciada = true;
+
+    escribir2();
+
+  }
+
+}
+
+window.addEventListener("scroll", revisarCartaFinal);
+window.addEventListener("load", revisarCartaFinal);
 
 </script>
 

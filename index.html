@@ -8,25 +8,24 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f5f0e6; /* beige elegante */
+  background: #f5f0e6;
   font-family: "Georgia", serif;
   color: #2c2c2c;
   line-height: 1.7;
 }
 
-/* CONTENEDOR GENERAL */
+/* CONTENEDOR */
 .container {
   max-width: 800px;
   margin: auto;
   padding: 40px 20px;
 }
 
-/* TITULO */
+/* TÍTULO */
 h1 {
   text-align: center;
   font-size: 34px;
   margin-bottom: 5px;
-  letter-spacing: 1px;
 }
 
 .date {
@@ -52,6 +51,7 @@ h1 {
   font-size: 18px;
   white-space: pre-line;
   margin-bottom: 40px;
+  min-height: 100px;
 }
 
 /* CURSOR */
@@ -73,9 +73,15 @@ h1 {
   margin: 40px 0;
 }
 
-/* CARRUSEL */
+/* SEPARADOR */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 50px 0;
+}
+
+/* CARRUSEL CORREGIDO */
 .carousel {
-  position: relative;
   width: 100%;
   max-width: 500px;
   margin: 30px auto;
@@ -89,9 +95,11 @@ h1 {
 }
 
 .track img {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: 320px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* VIDEO */
@@ -101,13 +109,6 @@ video {
   display: block;
   margin: 40px auto;
   border-radius: 10px;
-}
-
-/* SEPARADORES */
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 50px 0;
 }
 </style>
 </head>
@@ -121,12 +122,12 @@ hr {
 
 <!-- PORTADA -->
 <div class="portada">
-  <img src="portada.jpg" alt="portada">
+  <img src="portada.jpg">
 </div>
 
 <hr>
 
-<!-- CARTA 1 -->
+<!-- CARTA INICIAL -->
 <div class="carta" id="carta1"></div>
 
 <hr>
@@ -178,15 +179,13 @@ hr {
 
 <script>
 
-/* TEXTO 1 */
+/* TEXTO INICIAL */
 const texto1 = `A veces la vida une caminos de la forma más inesperada.
 Y cuando eso ocurre, algunos encuentros dejan de ser coincidencias para convertirse en hogar.
 
 Hay personas que llegan a nuestra vida haciendo ruido y otras que llegan convirtiéndose en calma. Tú fuiste eso para mí.
 
-No recuerdo cada palabra que hemos dicho ni cada momento que hemos compartido, pero sí recuerdo la sensación de encontrar en ti un lugar seguro. Un espacio donde puedo ser yo misma, donde las preocupaciones pesan menos y donde los días difíciles parecen más fáciles de atravesar.
-
-Entre todas las cosas que admiro de ti, hay una que nunca deja de sorprenderme: tu paciencia.`;
+No recuerdo cada palabra que hemos dicho ni cada momento que hemos compartido, pero sí recuerdo la sensación de encontrar en ti un lugar seguro.`;
 
 let i = 0;
 function escribir1() {
@@ -215,7 +214,7 @@ function actualizarContador() {
 setInterval(actualizarContador, 1000);
 actualizarContador();
 
-/* CARRUSEL */
+/* CARRUSEL CORREGIDO */
 let index = 0;
 
 setInterval(() => {
@@ -225,7 +224,9 @@ setInterval(() => {
   index++;
   if (index >= total) index = 0;
 
-  track.style.transform = `translateX(${-index * 500}px)`;
+  const width = track.clientWidth;
+  track.style.transform = `translateX(${-index * width}px)`;
+
 }, 3000);
 
 /* TEXTO FINAL */

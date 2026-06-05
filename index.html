@@ -1,1 +1,126 @@
-melissa
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+  position: relative;
+  top: 15vh;
+  animation: fadeIn 3s ease-in-out;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Carta */
+.carta {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(0,0,0,0.25);
+  padding: 25px;
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 1.6;
+  min-height: 120px;
+}
+
+/* Animación entrada */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Corazones flotantes */
+.heart {
+  position: absolute;
+  color: #ff4d6d;
+  animation: floatUp 6s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(100vh) scale(0.5); opacity: 0;}
+  50% {opacity: 1;}
+  100% {transform: translateY(-10vh) scale(1.2); opacity: 0;}
+}
+
+/* Cursor escritura */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background: white;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💖 Para ti 💖</h1>
+
+  <div class="carta">
+    <span id="text"></span><span class="cursor"></span>
+  </div>
+</div>
+
+<!-- Música opcional -->
+<audio autoplay loop>
+  <source src="" type="audio/mp3">
+</audio>
+
+<script>
+// Texto tipo máquina de escribir
+const text = "Cada palabra en esta web es para recordarte lo importante que eres para mí. Eres mi pensamiento bonito del día, mi calma y mi felicidad. 💕";
+let i = 0;
+
+function escribir() {
+  if (i < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(escribir, 50);
+  }
+}
+escribir();
+
+// Corazones flotantes
+function crearCorazon() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(crearCorazon, 300);
+</script>
+
+</body>
+</html>

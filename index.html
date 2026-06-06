@@ -337,7 +337,8 @@ function revisarCartaFinal() {
   ) {
 
     cartaFinalIniciada = true;
-
+document.getElementById("carta2").classList.add("visible");
+    
     escribir2();
 
   }
@@ -380,11 +381,7 @@ setTimeout(() => {
 setTimeout(() => {
   document.getElementById("videoBloque").classList.add("visible");
 }, 20000);
-  
-setTimeout(() => {
-  document.getElementById("carta2").classList.add("visible");
-}, 80000);
-  
+
 </script>
 
 </body>

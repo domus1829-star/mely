@@ -313,11 +313,13 @@ function escribir2() {
 
   } else {
 
-  document.getElementById("firma").style.display = "block";
+const firma = document.getElementById("firma");
+
+firma.style.display = "block";
 
 setTimeout(() => {
-  document.getElementById("firma").classList.add("visible");
-}, 80000);
+  firma.classList.add("visible");
+}, 100);
 
   }
 

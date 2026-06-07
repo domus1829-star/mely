@@ -193,7 +193,7 @@ video {
 <div id="firma"
      class="seccion"
      style="display:none; text-align:center; margin-top:20px;">
-  <img src="firma.png" alt="Firma" style="max-width:220px;">
+  <img src="firma.png" alt="Firma" style="max-width:100px;">
 </div>
 </div>  
 <script>
@@ -299,7 +299,6 @@ No sé cuántos capítulos nos quedan por escribir, pero sé que mi parte favori
 Con amor,`;
 
 let j = 0;
-let cartaFinalIniciada = false;
 
 function escribir2() {
 
@@ -313,40 +312,21 @@ function escribir2() {
 
   } else {
 
-const firma = document.getElementById("firma");
-
-firma.style.display = "block";
-
 setTimeout(() => {
-  firma.classList.add("visible");
-}, 100);
 
+  const firma = document.getElementById("firma");
+
+  firma.style.display = "block";
+
+  setTimeout(() => {
+    firma.classList.add("visible");
+  }, 100);
+
+}, 5000);
   }
 
 }
 
-function revisarCartaFinal() {
-
-  const carta = document.getElementById("carta2");
-
-  const posicion = carta.getBoundingClientRect().top;
-
-  if (
-    posicion < window.innerHeight &&
-    !cartaFinalIniciada
-  ) {
-
-    cartaFinalIniciada = true;
-document.getElementById("carta2").classList.add("visible");
-    
-    escribir2();
-
-  }
-
-}
-
-window.addEventListener("scroll", revisarCartaFinal);
-window.addEventListener("load", revisarCartaFinal);
 
 /* Aparición progresiva */
 
